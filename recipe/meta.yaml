@@ -10,8 +10,9 @@ source:
   sha256: 8bcec01bce50d5923a9286d560cdf49753368bd5b415d55f1de6fc48ea24508d
 
 build:
-  number: 1
+  number: 2
   noarch: generic
+#  string: "r36h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"
   rpaths:
     - lib/R/lib/
     - lib/
@@ -21,16 +22,16 @@ requirements:
     - {{ posix }}filesystem        # [win]
     - {{ posix }}git
     - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+
   host:
-    - r-base
+    - r-base 3.6.* 
     - r-rcurl
     - r-abind
     - r-climate4r.udg >=0.2.0
     - r-loader.java
     - r-rjava
   run:
-    - r-base
+    - r-base >=3.6,<4.0.0a0
     - r-rcurl
     - r-abind
     - r-climate4r.udg >=0.2.0
